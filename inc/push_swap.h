@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:40:08 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/22 23:03:54 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/25 15:43:31 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct 		s_node
 } 					t_node;
 
 /* USED FUNCTIONS */
-void	parse_nonnum_arg(int ac, char **av);
+void	parse_nonnum_arg(char **av);
+void parse_dup_arg(char **s);
 
 #endif

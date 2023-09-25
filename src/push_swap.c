@@ -6,34 +6,12 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/23 19:40:39 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/25 18:22:07 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 #include <stdio.h>
-
-//int ft_atoi(char *s)
-//{
-//    int i;
-//    int integer;
-//    int sign;
-
-//    i = 0;
-//    integer = 0;
-//    sign = 1;
-//    while (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
-//        i++;
-//    while (s[i] == '-' || s[i] == '+')
-//    {
-//        if (s[i] == '-')
-//            sign *= -1;
-//        i++;
-//    }
-//    while (s[i])
-//        integer = integer * 10 + s[i++] - 48;
-//    return (integer * sign);
-//}
 
 //void ft_putnbr(int n)
 //{
@@ -42,21 +20,20 @@
 //    write(1, &"0123456789"[n % 10], 1);
 //}
 
-void parse_nonnum_arg(int ac, char **av)
+void parse_nonnum_arg(char **s)
 {
     int j;
     int i;
-    
+
     j = 1;
-    while (av[j])
+    while (s[j])
     {
         i = 0;
-        printf("%d\n", ft_atoi(av[j]));
-        while (av[j][i])
+        while (s[j][i])
         {
-            if (av[j][i] != ' ' && !(av[j][i] >= '\t' && av[j][i] <= '\r') \
-                && !(av[j][i] == '-' || av[j][i] == '+') \
-                && !(av[j][i] >= '0' && av[j][i] <= '9'))
+            if (s[j][i] != ' ' && !(s[j][i] >= '\t' && s[j][i] <= '\r') \
+                && !(s[j][i] == '-' || s[j][i] == '+') \
+                && !(s[j][i] >= '0' && s[j][i] <= '9'))
             {
                 write(1, "Error\n", 6);
                 exit (1);
@@ -67,15 +44,27 @@ void parse_nonnum_arg(int ac, char **av)
     }
 }
 
-void check_dup(int *stack)
+void parse_dup_arg(char **s)
 {
-    int j;
+	int i;
+	int j;
 
-    j = 0;
-    while (stack[j])
+    i = 1;
+	j = 0;
+    while (s[i])
     {
-        if (stack[j] == stack[j])
-        j++;
+		j = i + 1;
+		while (s[j])
+		{
+			printf("i: %d\nj: %d\n", ft_atoi(s[i]), ft_atoi(s[j]));
+        	if (ft_atoi(s[i]) == ft_atoi(s[j]))	
+			{
+				write(2, "Error\n", 6);
+				exit(1);
+			}
+			j++;
+		}
+        i++;
     }
 }
 
@@ -83,18 +72,19 @@ int main (int ac, char **av)
 {
     int j;
     int i;
-    t_node *head;
+    // t_node *head;
 
     j = 1;
     i = 0;
-    parse_nonnum_arg(ac, av);
-    //head->data = NULL;
-    //head->next = NULL;
-    //while (i < (ac - 1))
-    //{
+    parse_nonnum_arg(av);
+	parse_dup_arg(av);
+    // head->data = NULL;
+    // head->next = NULL;
+    // while (i < (ac - 1))
+    // {
     //    t_node *arg = (t_node *)malloc(sizeof(t_node *) * 1);
         
     //    i++;
-    //}
+    // }
     return (0);
 }

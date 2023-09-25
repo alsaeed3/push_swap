@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:20:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/23 20:02:55 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/25 18:23:47 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int			ft_strncmp(char *s1, char *s2, size_t n);
 void		*ft_memchr(void *s, int c, size_t n);
 int			ft_memcmp(void *s1, void *s2, size_t n);
 char		*ft_strnstr(char *haystack, char *needle, size_t len);
-int			ft_atoi(char *str);
+int			ft_atoi(char *s);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(char *s1);
 char		*ft_strdup_nonl(char *s1);

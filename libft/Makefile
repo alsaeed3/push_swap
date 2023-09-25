@@ -6,7 +6,7 @@
 #    By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:48:47 by alsaeed           #+#    #+#              #
-#    Updated: 2023/09/06 10:58:07 by alsaeed          ###   ########.fr        #
+#    Updated: 2023/09/25 16:51:30 by alsaeed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,11 +44,11 @@ ARFLAGS = 		ar -rcs
 
 all: 			$(NAME)
 
-$(NAME): 		$(OBJT) $(OBJ_PRINTF) $(OBJ_GNL)
-				@$(ARFLAGS) $(NAME) $(OBJT) $(OBJ_PRINTF) $(OBJ_GNL)
+$(NAME): 		$(OBJS) $(OBJT) $(OBJ_PRINTF) $(OBJ_GNL)
+				@$(ARFLAGS) $(NAME) $(OBJS) $(OBJT) $(OBJ_PRINTF) $(OBJ_GNL)
 
 clean:
-				@$(RM) $(OBJT) $(OBJ_PRINTF) $(OBJ_GNL)
+				@$(RM) $(OBJS) $(OBJT) $(OBJ_PRINTF) $(OBJ_GNL)
 
 fclean: 		clean
 				@$(RM) $(NAME)
