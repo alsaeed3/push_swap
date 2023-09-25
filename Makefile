@@ -12,7 +12,7 @@
 
 NAME = push_swap
 
-SRCS = 
+SRCS = src/push_swap.c
 OBJS = $(SRC:.c=.o)
 
 CC = cc

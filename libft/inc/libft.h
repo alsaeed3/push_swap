@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:20:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/06 10:57:05 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/23 20:02:55 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <stdbool.h>
 # include <sys/types.h>
 # include <signal.h>
+# include <stdio.h>
 
 /* Libc functions */
 int			ft_isalpha(int c);
