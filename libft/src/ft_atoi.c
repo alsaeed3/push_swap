@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:34:50 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/25 18:22:55 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/26 17:43:35 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int ft_atoi(char *s)
     	integer = integer * 10 + s[i++] - 48;
 		if (((integer * sign) > 2147483647) || ((integer * sign) < -2147483648))
 		{
-			write(2, "Error: The passed argument is out of INT limits\n", 48);
+			write(2, "\033[1;31mError\n\033[0m", 17);
 			exit (1);
 		}
    }

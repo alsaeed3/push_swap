@@ -6,40 +6,19 @@
 #    By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 16:40:12 by alsaeed           #+#    #+#              #
-#    Updated: 2023/09/15 17:19:48 by alsaeed          ###   ########.fr        #
+#    Updated: 2023/09/26 15:24:52 by alsaeed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+$(NAME): all
 
-SRCS = src/push_swap.c
-OBJS = $(SRC:.c=.o)
-
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-
-LIBFT_DIR = ./libft
-LIBFT_LIB = $(LIBFT_DIR)/libft.a
-
-all: $(LIBFT_LIB) $(NAME)
-
-.c.o:
-	${CC} ${CFLAGS} -c $< -o $@ 
-
-$(NAME): ${OBJS}
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_LIB)
-
-$(LIBFT_LIB): 
-		@make -C $(LIBFT_DIR)
+all: 
+	@make all -C srcs
 
 clean:
-		@rm -f $(OBJS)
-		@make clean -C libft
+	@make clean -C srcs
 
 fclean: clean
-		@rm -f $(NAME)
-		@make fclean -C $(LIBFT_DIR)
+	@make fclean -C srcs
 
 re: fclean all
-
-.PHONY: all clean fclean re
