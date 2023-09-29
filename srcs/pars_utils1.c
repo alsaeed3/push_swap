@@ -6,25 +6,11 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:03:05 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/29 16:40:01 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/29 17:06:25 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-int		space_arg(char **s)
-{
-	int i;
-
-	i = 1;
-	while (s[i])
-	{
-		if (ft_isspace_str(s[i]) == 1)
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 int		char_no(char **av)
 {
