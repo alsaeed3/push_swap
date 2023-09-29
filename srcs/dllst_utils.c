@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:04:00 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/28 15:44:26 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/29 18:11:57 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,31 @@
 
 void	init_dll(t_dll *lst)
 {
-	if (lst)
-	{
+	// if (lst != NULL)
+	// {
 		lst->head = malloc(sizeof(t_node));
+		if (!lst->head)
+			exit (1);
 		lst->tail = malloc(sizeof(t_node));
-		lst->head->data = 0;
-		lst->head->next = NULL;
-		lst->head->prev = NULL;
-		lst->tail->data = 0;
-		lst->tail->next = NULL;
-		lst->tail->prev = NULL;
-	}
+		if (!lst->tail)
+			exit (1);
+		// lst->head->data = 0;
+		// lst->head->next = NULL;
+		// lst->head->prev = NULL;
+		// lst->tail->data = 0;
+		// lst->tail->next = NULL;
+		// lst->tail->prev = NULL;
+	// }
+	printf("%p\n", lst->head);
 }
 
 void	create_head_dll(t_node **head, int integer)
 {
+	(void) head, (void )integer;
+
 	(*head)->data = integer;
-	(*head)->next = NULL;
-	(*head)->prev = NULL;
+	// (*head)->next = NULL;
+	// (*head)->prev = NULL;
 }
 
 void	insert_begin_dll(t_node **head, int integer)
@@ -94,7 +101,7 @@ void	insert_before_dll(t_node *node, int integer)
 	node->prev = new_node;
 }
 
-void	make_dll(t_dll *stack, char **av, int ac)
+void	make_dll(t_dll *stack, char **array_str, int ac)
 {
 	int i;
 
@@ -102,13 +109,13 @@ void	make_dll(t_dll *stack, char **av, int ac)
 	stack = malloc(sizeof(t_dll));
 	if (!stack)
 		exit (1);
-	printf("%s,%d\n", av[1], ft_atoi(av[1]));
-	create_head_dll(&stack->head, ft_atoi(av[1]));
-	i = 2;
+	// printf("%s,%d\n", array_str[0], ft_atoi(array_str[0]));
+	create_head_dll(&stack->head, ft_atoi(array_str[0]));
+	i = 1;
 	while (i < ac)
 	{
-		printf("%s,%d\n", av[i], ft_atoi(av[i]));
-		insert_end_dll(&stack->tail, ft_atoi(av[i]));
+		printf("%s,%d\n", array_str[i], ft_atoi(array_str[i]));
+		insert_end_dll(&stack->tail, ft_atoi(array_str[i]));
 		i++;
 	}
 }

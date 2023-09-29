@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:40:08 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/29 14:35:58 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/29 17:50:50 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	insert_begin_dll(t_node **head, int integer);
 void	insert_end_dll(t_node **tail, int integer);
 void	insert_after_dll(t_node *node, int integer);
 void	insert_before_dll(t_node *node, int integer);
-void	make_dll(t_dll *stack, char **av, int ac);
+void	make_dll(t_dll *stack, char **array_str, int ac);
 void	deallocate_dllst(t_dll *stack);
 
 
