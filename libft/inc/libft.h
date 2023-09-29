@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:20:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/29 15:02:44 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/29 17:07:00 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		free_array(char **array);
 int			ft_isspace_str(char *s);
+int			space_arg(char **s);
 
 /* Bonus functions */
 typedef struct s_list
