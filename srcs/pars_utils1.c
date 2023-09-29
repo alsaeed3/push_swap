@@ -6,30 +6,21 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:03:05 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/28 18:39:00 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/09/29 16:40:01 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int space_arg(char **s)
+int		space_arg(char **s)
 {
 	int i;
-	int	j;
 
 	i = 1;
 	while (s[i])
 	{
-		j = 0;
-		while (s[i][j])
-		{
-			if (ft_isspace(s[i][j]) == 1)
-			{
-				write(2, "Error\n", 6);
-				return (1);
-			}
-			j++;
-		}
+		if (ft_isspace_str(s[i]) == 1)
+			return (1);
 		i++;
 	}
 	return (0);
@@ -83,7 +74,7 @@ char	*ft_strjoin_sp(int ac, char **av)
 	return (str);
 }
 
-int parse_nonnum_arg(char **s)
+int		parse_nonnum_arg(char **s)
 {
     int j;
     int i;
@@ -105,22 +96,44 @@ int parse_nonnum_arg(char **s)
 	return (0);
 }
 
-int	parse_dup_arg(char **s)
+int		parse_dup_arg(char **s)
 {
 	int i;
 	int j;
 
     i = 0;
-	j = 0;
     while (s[i])
     {
+		j = i + 1;
 		while (s[j])
 		{
-        	if (ft_atoi(s[i]) == ft_atoi(s[j]) && i != j)	
+       		if (ft_atoi(s[i]) == ft_atoi(s[j]) && i != j)
 				return (1);
 			j++;
 		}
-        i++;
+		i++;
     }
 	return (0);
+}
+
+void	parse_args(int ac, char **av)
+{
+	char	*str;
+	char	**str_arr;
+	
+	if (ac == 1 || space_arg(av) == 1)
+	{ 
+		write (2, "Error\n", 6);
+		exit (0);
+	}
+	str = ft_strjoin_sp(ac, av);
+	str_arr = ft_split(str, ' ');
+	free (str);
+	if (parse_nonnum_arg(str_arr) == 1 || parse_dup_arg(str_arr) == 1)
+	{
+		free_array(str_arr);
+		write(2, "Error\n", 6);
+		exit (1);
+	}
+	free_array(str_arr);
 }

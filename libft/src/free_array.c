@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   free_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/29 16:06:11 by alsaeed          ###   ########.fr       */
+/*   Created: 2023/09/29 14:33:05 by alsaeed           #+#    #+#             */
+/*   Updated: 2023/09/29 15:05:03 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
-#include <stdio.h>
+#include "../inc/libft.h"
 
-
-
-int main (int ac, char **av)
+void	free_array(char **array)
 {
-	// t_dll		*stack_a;
-	// t_node		*curr;
-	
-	parse_args(ac, av);
-	
-	// stack_a = NULL;
-	// make_dll(stack_a, av, ac);
-	// curr = stack_a->head;
-	// while (curr != NULL)
-	// {
-	// 	printf("%d\n", stack_a->head->data);
-	// 	curr = curr->next;
-	// }
-	// deallocate_dllst(stack_a);
-    return (0);
+	int	i;
+
+	i = 0;
+	if (!array)
+		return;
+	while (array[i])
+	{
+		if (!array[i])
+			return;
+		free (array[i]);
+		array[i] = NULL;
+		i++;
+	}
+	if (array)
+	{
+		free (array);
+		array = NULL;
+	}
 }
