@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:34:50 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/29 16:27:08 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/02 13:22:14 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,22 @@ int ft_atoi(char *s)
 	i = 0;
 	integer = 0;
 	sign = 1;
-	while (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
+	while (s[i] == ' ')
 		i++;
     if (s[i] == '-')
        sign *= -1;
-	i++;
-	while ((s[i] >= '0' && s[i] <= '9'))
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	while (s[i] >= '0' && s[i] <= '9')
 	{
-		integer = integer * 10 + s[i++] - 48;
+		integer = integer * 10 + s[i] - 48;
 		if (((integer * sign) > 2147483647) || ((integer * sign) < -2147483648) \
 			|| s[i + 1] == '-' || s[i + 1] == '+')
 		{
 			write(2, "Error\n", 6);
 			exit (1);
 		}
+		i++;
 	}
 	return (integer * sign);
 }

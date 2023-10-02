@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:20:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/29 17:07:00 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/02 19:04:40 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ int			ft_isspace_str(char *s);
 int			space_arg(char **s);
 
 /* Bonus functions */
-typedef struct s_list
+typedef struct 		s_list
 {
-	void			*content;
+	int				*content;
 	struct s_list	*next;
 }					t_list;
 

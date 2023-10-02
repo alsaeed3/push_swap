@@ -6,18 +6,18 @@
 #    By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 16:40:12 by alsaeed           #+#    #+#              #
-#    Updated: 2023/09/29 14:42:11 by alsaeed          ###   ########.fr        #
+#    Updated: 2023/10/02 19:03:27 by alsaeed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	../push_swap
 
-SRCS =	moves_utils1.c moves_utils2.c pars_utils1.c push_swap.c dllst_utils.c \
-		sorting2.c
+SRCS =	moves_utils1.c moves_utils2.c pars_utils1.c push_swap.c sorting2.c
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
 CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+
 
 LIBFT_DIR = ../libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
@@ -26,10 +26,10 @@ all: $(LIBFT_LIB) $(NAME)
 
 $(OBJS_DIR)%.o: %.c
 	@mkdir -p $(OBJS_DIR)
-	@cc $(CFLAGS) -c $< -o $@ 
+	cc $(CFLAGS) -c $< -o $@ 
 
 $(NAME): $(OBJS)
-	@cc $(CFLAGS) $(OBJS) $(LIBFT_LIB) -o $(NAME)
+	cc $(CFLAGS) $(OBJS) $(LIBFT_LIB) -o $(NAME)
 	@echo "\033[1;32mpush_swap is Compiled Successfully\n\033[0m"
 
 $(LIBFT_LIB): 

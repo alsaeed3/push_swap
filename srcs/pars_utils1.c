@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:03:05 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/29 17:06:25 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/02 16:09:50 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int		parse_dup_arg(char **s)
     i = 0;
     while (s[i])
     {
-		j = i + 1;
+		j =  i + 1;
 		while (s[j])
 		{
        		if (ft_atoi(s[i]) == ft_atoi(s[j]) && i != j)
@@ -106,8 +106,8 @@ void	parse_args(int ac, char **av)
 {
 	char	*str;
 	char	**str_arr;
-	
-	if (ac == 1 || space_arg(av) == 1)
+
+	if (space_arg(av) == 1)
 	{ 
 		write (2, "Error\n", 6);
 		exit (0);
@@ -115,10 +115,16 @@ void	parse_args(int ac, char **av)
 	str = ft_strjoin_sp(ac, av);
 	str_arr = ft_split(str, ' ');
 	free (str);
-	if (parse_nonnum_arg(str_arr) == 1 || parse_dup_arg(str_arr) == 1)
+	if (parse_nonnum_arg(str_arr) == 1)
 	{
 		free_array(str_arr);
-		write(2, "Error\n", 6);
+		write(2, "Error\nnonnum character\n", 23);
+		exit (1);
+	}
+	if (parse_dup_arg(str_arr) == 1)
+	{
+		free_array(str_arr);
+		write(2, "Error\nduplicate integer\n", 24);
 		exit (1);
 	}
 	free_array(str_arr);
