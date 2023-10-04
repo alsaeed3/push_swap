@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_utils1.c                                     :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 17:05:25 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/04 16:06:29 by alsaeed          ###   ########.fr       */
+/*   Created: 2023/09/15 17:05:22 by alsaeed           #+#    #+#             */
+/*   Updated: 2023/10/04 19:17:18 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-t_list	*make_stack(char **str_arr)
-{
-	t_list	*head;
-	int		i;
+// void	rotate(t_list **stack)
+// {
+	
+// }
 
-	head = malloc(sizeof(t_list));
-	if (!head)
-		exit (1);
-	head->content = ft_atoi(str_arr[0]);
-	head->next = NULL;
-	i = 1;
-	while(str_arr[i])
-	{
-		head = ft_lstadd_back(head, ft_atoi(str_arr[i]));
-		i++;
-	}
-	return (head);
-}
+// void	ra(t_list **stack)
+// {
+	
+// }
+
+// void	rb(t_list **stack)
+// {
+	
+// }
