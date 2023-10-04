@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_array_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 15:46:41 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/07/24 15:49:38 by alsaeed          ###   ########.fr       */
+/*   Created: 2023/10/04 16:05:56 by alsaeed           #+#    #+#             */
+/*   Updated: 2023/10/04 16:11:12 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+int		ft_array_size(char **array)
 {
-	if (!del)
-		return ;
-	if (lst)
-	{
-		(*del)(lst->content);
-		free(lst);
-	}	
+	int	i;
+
+	i = 0;
+	while (array[i] != NULL)
+		i++;
+	return (i);
 }

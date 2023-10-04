@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_deallocate_lst.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 15:44:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/07/24 15:49:56 by alsaeed          ###   ########.fr       */
+/*   Created: 2023/10/03 16:05:38 by alsaeed           #+#    #+#             */
+/*   Updated: 2023/10/03 18:31:32 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_deallocate_lst(t_list *stack)
 {
-	t_list	*element;
+	t_list	*curr;
+	t_list	*next;
 
-	element = malloc(sizeof(t_list));
-	if (!element)
-		return (NULL);
-	element->content = content;
-	element->next = NULL;
-	return (element);
+	curr = stack;
+	if (stack != NULL)
+	{
+		while (curr->next != NULL)
+		{
+			next = curr->next;
+			free (curr);
+			curr = next;
+		}
+		free (curr);
+	}
 }

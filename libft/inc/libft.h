@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:20:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/02 19:04:40 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/04 16:12:43 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,26 +64,25 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
-void		free_array(char **array);
+void		ft_free_array(char **array);
 int			ft_isspace_str(char *s);
-int			space_arg(char **s);
+int			ft_space_arg(char **s);
+int			ft_array_size(char **array);
 
-/* Bonus functions */
+/* Singly-linked list functions */
 typedef struct 		s_list
 {
-	int				*content;
+	int				content;
 	struct s_list	*next;
 }					t_list;
 
-t_list		*ft_lstnew(void *content);
-void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_lstsize(t_list *lst);
-t_list		*ft_lstlast(t_list *lst);
-void		ft_lstadd_back(t_list **lst, t_list *new);
-void		ft_lstdelone(t_list *lst, void (*del)(void*));
-void		ft_lstclear(t_list **lst, void (*del)(void*));
-void		ft_lstiter(t_list *lst, void (*f)(void *));
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list		*ft_lstadd_back(t_list *head, int integer);
+void		ft_lstadd_front(t_list *head, int integer);
+t_list		*ft_lst_last(t_list *head);
+void		ft_deallocate_lst(t_list *stack);
+int			ft_array_size(char **array);
+t_list		*ft_make_stack(char **str_arr);
 
 /* ft_printf */
 int			ft_putchar(char c);

@@ -6,7 +6,7 @@
 #    By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:48:47 by alsaeed           #+#    #+#              #
-#    Updated: 2023/09/29 17:07:12 by alsaeed          ###   ########.fr        #
+#    Updated: 2023/10/04 16:10:21 by alsaeed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ SRCS =			ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 				ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_bzero.c \
 				ft_strchr.c ft_strdup.c ft_strtrim.c ft_memcpy.c ft_isspace.c \
 				ft_memset.c ft_substr.c ft_calloc.c ft_strlcpy.c ft_strdup_nonl.c \
-				ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-				ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-				ft_lstmap.c ft_putchar.c ft_putstr.c ft_putnbr.c print_hex.c \
+				ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+				ft_deallocate_lst.c ft_putchar.c ft_putstr.c ft_putnbr.c print_hex.c \
 				print_pointer.c print_undec.c ft_printf.c get_next_line.c \
-				get_next_line_utils.c free_array.c ft_isspace_str.c space_arg.c
+				get_next_line_utils.c ft_free_array.c ft_isspace_str.c ft_space_arg.c \
+				ft_make_stack.c ft_array_size.c
 OBJS_DIR =		objs/
 OBJS = 			$(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
@@ -41,18 +41,18 @@ $(OBJS_DIR)%.o: %.c
 
 $(NAME): 		$(OBJS)
 	@$(ARFLAGS) $(NAME) $(OBJS)
-	@echo "\033[1;32mLibft is Compiled Successfully\n\033[0m"
+	@echo "libft Compiled : \033[1;32mOK\n\033[0m"
 
 clean:
 	@if [ -e $(OBJS_DIR) ]; then \
 		rm -rf $(OBJS_DIR); \
-		echo "\033[1;38;5;208mLibft Clean is Successful\n\033[0m"; \
+		echo "libft Clean : \033[32mOK\n\033[0m"; \
 	fi
 
 fclean: 		clean
 	@if [ -e $(NAME) ]; then \
 		$(RM) $(NAME); \
-		echo "\033[1;31mLibft Full-Clean is Successful\n\033[0m"; \
+		echo "libft Full-Clean : \033[32mOK\n\033[0m"; \
 	fi
 re: 			fclean all
 

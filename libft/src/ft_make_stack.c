@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_array.c                                       :+:      :+:    :+:   */
+/*   make_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 14:33:05 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/09/29 15:05:03 by alsaeed          ###   ########.fr       */
+/*   Created: 2023/10/03 20:04:47 by alsaeed           #+#    #+#             */
+/*   Updated: 2023/10/04 16:07:44 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	free_array(char **array)
+t_list	*ft_make_stack(char **str_arr)
 {
-	int	i;
+	t_list	*head;
+	int		i;
 
-	i = 0;
-	if (!array)
-		return;
-	while (array[i])
+	head = malloc(sizeof(t_list));
+	if (!head)
+		exit (1);
+	head->content = ft_atoi(str_arr[0]);
+	head->next = NULL;
+	i = 1;
+	while(str_arr[i])
 	{
-		if (!array[i])
-			return;
-		free (array[i]);
-		array[i] = NULL;
+		head = ft_lstadd_back(head, ft_atoi(str_arr[i]));
 		i++;
 	}
-	if (array)
-	{
-		free (array);
-		array = NULL;
-	}
+	return (head);
 }

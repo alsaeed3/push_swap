@@ -3,21 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:45:20 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/07/24 15:49:32 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/03 15:17:30 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list *head, int integer)
 {
-	if (lst)
+	t_list *new_node;
+
+	if (head != NULL)
 	{
-		if (*lst)
-			new->next = *lst;
-		*lst = new;
+		new_node = malloc(sizeof(t_list));
+		if (!new_node)
+			exit (1);
+		new_node->content = integer;
+		new_node->next = head;
+		head = new_node;
 	}
 }

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_space_arg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 15:48:38 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/07/24 15:49:43 by alsaeed          ###   ########.fr       */
+/*   Created: 2023/09/29 17:06:30 by alsaeed           #+#    #+#             */
+/*   Updated: 2023/10/04 16:08:57 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int		ft_space_arg(char **s)
 {
-	t_list	*tmp;
+	int i;
 
-	if (!lst)
-		return ;
-	tmp = lst;
-	while (tmp)
+	i = 1;
+	while (s[i])
 	{
-		(*f)(tmp->content);
-		tmp = tmp->next;
+		if (ft_isspace_str(s[i]) == 1)
+			return (1);
+		i++;
 	}
+	return (0);
 }

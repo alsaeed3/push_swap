@@ -3,22 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:46:10 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/07/24 15:49:47 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/03 15:17:35 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_list		*ft_lst_last(t_list *head)
 {
-	while (lst)
-	{
-		if (!lst->next)
-			return (lst);
-		lst = lst->next;
-	}
-	return (lst);
+	while (head->next != NULL)
+		head = head->next;
+	return (head);
 }
