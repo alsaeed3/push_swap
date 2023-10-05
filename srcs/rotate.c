@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 17:05:22 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/05 14:30:15 by alsaeed          ###   ########.fr       */
+/*   Created: 2023/09/15 17:05:23 by alsaeed           #+#    #+#             */
+/*   Updated: 2023/10/05 16:20:56 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,11 @@ void	rb(t_list **stack_b)
 {
 	rotate(stack_b);
 	write(1, "rb\n", 3);
+}
+
+void	rr(t_list **stack_a, t_list **stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
+	write(1, "rr\n", 3);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 17:05:22 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/05 14:43:50 by alsaeed          ###   ########.fr       */
+/*   Created: 2023/09/15 17:05:21 by alsaeed           #+#    #+#             */
+/*   Updated: 2023/10/05 16:40:05 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	reverse_rotate(t_list **stack)
 		last = ft_lst_last(*stack);
 		prelast = ft_lst_prelast(*stack);
 		last->next = *stack;
-		prelast->next = NULL;
+		if (prelast)
+			prelast->next = NULL;
 		*stack = last;
 	}
 }
@@ -46,4 +47,11 @@ void	rrb(t_list **stack_b)
 {
 	reverse_rotate(stack_b);
 	write(1, "rra\n", 4);
+}
+
+void	rrr(t_list **stack_a, t_list **stack_b)
+{
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	write(1, "rrr\n", 4);
 }

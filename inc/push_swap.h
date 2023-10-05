@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:40:08 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/05 14:42:31 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/05 19:30:16 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,15 @@ void	sb(t_list **stack_b);
 void	rotate(t_list **stack);
 void	ra(t_list **stack_a);
 void	rb(t_list **stack_b);
+void	rr(t_list **stack_a, t_list **stack_b);
 t_list	*ft_lst_prelast(t_list *stack);
 void	reverse_rotate(t_list **stack);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
+void	continue_three_sort(int fir_node, int sec_node, int thi_node, \
+		t_list **stack);
+void	three_nodes_sort(t_list	**stack);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/05 15:04:23 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/05 17:17:39 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,8 @@ void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b)
 	array_str = get_array(ac, av);
 	stack_a = ft_make_stack(array_str);
 	ft_free_array(array_str);
-	curr = stack_a;
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
+	while(ft_lstsize(stack_a) > 3)
+		pb(&stack_a, &stack_b);
 	curr = stack_a;
 	printf("stack_a:\n");
 	while (curr != NULL)
@@ -55,6 +53,16 @@ void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b)
 		printf("%d\n", curr->content);
 		curr = curr->next;
 	}
+	three_nodes_sort(&stack_a);
+	curr = stack_a;
+	printf("stack_a:\n");
+	while (curr != NULL)
+	{
+		printf("%d\n", curr->content);
+		curr = curr->next;
+	}
+	// function(&stack_a, &stack_b);
+	// function(&stack_a, &stack_b);
 }
 
 int main (int ac, char **av)
