@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:05:22 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/04 19:49:50 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/05 14:45:39 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@ void	swap(t_list **stack)
 
 	if (*stack && (*stack)->next)
 	{
-		tmp = *stack;
+		tmp = (*stack)->next;
 		(*stack)->next = (*stack)->next->next;
-		
+		tmp->next = *stack;
+		*stack = tmp;
 	}
 }
 
-// void	sa(t_list **stack)
-// {
-	
-// }
+void	sa(t_list **stack_a)
+{
+	swap(stack_a);
+	write(1, "sa\n", 3);
+}
 
-// void	sb(t_list **stack)
-// {
-	
-// }
+void	sb(t_list **stack_b)
+{
+	swap(stack_b);
+	write(1, "sa\n", 3);
+}
