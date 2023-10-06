@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/05 17:17:39 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/06 19:01:43 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,40 +29,44 @@ char	**get_array(int ac, char **av)
 	return (array);
 }
 
+t_list	*init_stack_a(char **str_arr)
+{
+	t_list	*head;
+	int		i;
+
+	head = NULL;
+	head = malloc(sizeof(t_list));
+	if (!head)
+		exit (1);
+	head->data = ft_atoi(str_arr[0]);
+	head->index = -1;
+	head->next = NULL;
+	i = 1;
+	while(str_arr[i])
+	{
+		head = ft_lstadd_back(head, ft_atoi(str_arr[i]));
+		printf("lstadd_back\n");
+		i++;
+	}
+	return (head);
+}
+
 void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b)
 {
 	char	**array_str;
 	t_list	*curr;
-	
+
 	array_str = get_array(ac, av);
-	stack_a = ft_make_stack(array_str);
+	stack_a = init_stack_a(array_str);
+	five_nodes_sort(&stack_a, &stack_b, array_str);
+	curr = stack_a;
+	printf("stack_a:\n");
+	while (curr != NULL)
+	{
+		printf("%d\n", curr->index);
+		curr = curr->next;
+	}
 	ft_free_array(array_str);
-	while(ft_lstsize(stack_a) > 3)
-		pb(&stack_a, &stack_b);
-	curr = stack_a;
-	printf("stack_a:\n");
-	while (curr != NULL)
-	{
-		printf("%d\n", curr->content);
-		curr = curr->next;
-	}
-	printf("stack_b:\n");
-	curr = stack_b;
-	while (curr != NULL)
-	{
-		printf("%d\n", curr->content);
-		curr = curr->next;
-	}
-	three_nodes_sort(&stack_a);
-	curr = stack_a;
-	printf("stack_a:\n");
-	while (curr != NULL)
-	{
-		printf("%d\n", curr->content);
-		curr = curr->next;
-	}
-	// function(&stack_a, &stack_b);
-	// function(&stack_a, &stack_b);
 }
 
 int main (int ac, char **av)
@@ -75,8 +79,12 @@ int main (int ac, char **av)
 	if (ac != 1)
 	{
 		parse_args(ac, av);
+		printf("\n");
 		init_stacks(ac, av, stack_a, stack_b);
+		printf("\n");
 		ft_deallocate_lst(stack_a);
+		printf("\n");
+		ft_deallocate_lst(stack_b);
 	}
 	return (0);
 }

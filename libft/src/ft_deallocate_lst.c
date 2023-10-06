@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:05:38 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/03 18:31:32 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/06 11:45:08 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_deallocate_lst(t_list *stack)
 			free (curr);
 			curr = next;
 		}
-		free (curr);
+		if (curr != NULL)
+			free (curr);
 	}
 }

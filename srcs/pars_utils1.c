@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:03:05 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/04 16:14:01 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/06 12:03:36 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ int		parse_nonnum_arg(char **s)
                 && !(s[j][i] == '-' || s[j][i] == '+') \
                 && !(s[j][i] >= '0' && s[j][i] <= '9'))
                 return (1);
-			else if ((s[j][i] == '+' || s[j][i] == '-') && (s[j][i + 1] == '\0' || s[j][i + 1] == ' '))
+			else if ((s[j][i] == '+' || s[j][i] == '-') \
+				&& (s[j][i + 1] == '\0' || s[j][i + 1] == ' '))
 				return (1);
             i++;
         }
@@ -112,21 +113,15 @@ void	parse_args(int ac, char **av)
 	if (ft_space_arg(av) == 1)
 	{ 
 		write (2, "Error\n", 6);
-		exit (0);
+		exit (1);
 	}
 	str = ft_strjoin_sp(ac, av);
 	str_arr = ft_split(str, ' ');
 	free (str);
-	if (parse_nonnum_arg(str_arr) == 1)
+	if (parse_nonnum_arg(str_arr) == 1 || parse_dup_arg(str_arr) == 1)
 	{
 		ft_free_array(str_arr);
-		write(2, "Error\nnonnum character\n", 23);
-		exit (1);
-	}
-	if (parse_dup_arg(str_arr) == 1)
-	{
-		ft_free_array(str_arr);
-		write(2, "Error\nduplicate integer\n", 24);
+		write(2, "Error\n", 23);
 		exit (1);
 	}
 	ft_free_array(str_arr);

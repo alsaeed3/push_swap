@@ -6,7 +6,7 @@
 #    By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 16:40:12 by alsaeed           #+#    #+#              #
-#    Updated: 2023/10/04 19:18:03 by alsaeed          ###   ########.fr        #
+#    Updated: 2023/10/06 19:02:11 by alsaeed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS =	pars_utils1.c push_swap.c push.c reverse_rotate.c rotate.c sorting2.c \
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3
 
 LIBFT_DIR = ../libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a

@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:20:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/04 16:12:43 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/06 18:49:38 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,9 @@ int			ft_array_size(char **array);
 /* Singly-linked list functions */
 typedef struct 		s_list
 {
-	int				content;
+	int				data;
+	int				index;
+	int				distance;
 	struct s_list	*next;
 }					t_list;
 
@@ -82,7 +84,6 @@ void		ft_lstadd_front(t_list *head, int integer);
 t_list		*ft_lst_last(t_list *head);
 void		ft_deallocate_lst(t_list *stack);
 int			ft_array_size(char **array);
-t_list		*ft_make_stack(char **str_arr);
 
 /* ft_printf */
 int			ft_putchar(char c);

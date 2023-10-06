@@ -6,7 +6,7 @@
 #    By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:48:47 by alsaeed           #+#    #+#              #
-#    Updated: 2023/10/04 16:10:21 by alsaeed          ###   ########.fr        #
+#    Updated: 2023/10/06 16:53:28 by alsaeed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS =			ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 				ft_deallocate_lst.c ft_putchar.c ft_putstr.c ft_putnbr.c print_hex.c \
 				print_pointer.c print_undec.c ft_printf.c get_next_line.c \
 				get_next_line_utils.c ft_free_array.c ft_isspace_str.c ft_space_arg.c \
-				ft_make_stack.c ft_array_size.c
+				ft_array_size.c
 OBJS_DIR =		objs/
 OBJS = 			$(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
