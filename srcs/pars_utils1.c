@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:03:05 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/06 12:03:36 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/08 15:30:32 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	parse_args(int ac, char **av)
 	if (parse_nonnum_arg(str_arr) == 1 || parse_dup_arg(str_arr) == 1)
 	{
 		ft_free_array(str_arr);
-		write(2, "Error\n", 23);
+		write(2, "Error\n", 6);
 		exit (1);
 	}
 	ft_free_array(str_arr);

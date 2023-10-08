@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:04:26 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/06 20:03:45 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/08 15:39:48 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,8 @@ void	ft_index_min(t_list **stack)
 
 void	get_min_pb(t_list **stack_a, t_list **stack_b)
 {
-	int		dist;
 	t_list	*tmp;
 
-	dist = 0;
 	tmp = *stack_a;
 	while (*stack_a)
 	{
@@ -114,7 +112,7 @@ void	three_nodes_sort(t_list	**stack)
 	if (*stack && (*stack)->next && (*stack)->next->next)
 	{
 		curr = *stack;
-		first_node = curr->index;
+		first_node = curr->data;
 		second_node = curr->next->data;
 		third_node = curr->next->next->data;
 		if ((first_node > second_node) && (first_node < third_node) \
@@ -130,9 +128,9 @@ void	three_nodes_sort(t_list	**stack)
 
 void	five_nodes_sort(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*curr;
+	//t_list	*curr;
 
-	curr = NULL;
+	//curr = NULL;
 	if (*stack_a)
 	{
 		// curr = *stack_a;
