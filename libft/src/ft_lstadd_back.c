@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:46:27 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/06 18:59:53 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/09 13:41:50 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_list	*ft_lstadd_back(t_list *head, int integer)
 		if (!new_node)
 			exit(1);
 		new_node->data = integer;
+		new_node->distance = 0;
 		new_node->index = -1;
 		new_node->next = NULL;
 		last_node->next = new_node;

@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:20:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/06 18:49:38 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/09 19:30:31 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,21 +53,6 @@ void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(char *s1);
 char		*ft_strdup_nonl(char *s1);
 
-/* Additional functions */
-char		*ft_substr(char *s, unsigned int start, size_t len);
-char		*ft_strtrim(char *s1, char *set);
-char		**ft_split(char *s, char c);
-char		*ft_itoa(int n);
-char		*ft_strmapi(char *s, char (*f)(unsigned int, char));
-void		ft_striteri(char *s, void (*f)(unsigned int, char*));
-void		ft_putchar_fd(char c, int fd);
-void		ft_putstr_fd(char *s, int fd);
-void		ft_putendl_fd(char *s, int fd);
-void		ft_putnbr_fd(int n, int fd);
-void		ft_free_array(char **array);
-int			ft_isspace_str(char *s);
-int			ft_space_arg(char **s);
-int			ft_array_size(char **array);
 
 /* Singly-linked list functions */
 typedef struct 		s_list
@@ -78,12 +63,26 @@ typedef struct 		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_index
+{
+	t_list			*tmp;
+	int				min;
+	int				i;
+	int				j;
+	int				k;
+	int				*index;
+}					t_index;
+
+
 int			ft_lstsize(t_list *lst);
 t_list		*ft_lstadd_back(t_list *head, int integer);
 void		ft_lstadd_front(t_list *head, int integer);
 t_list		*ft_lst_last(t_list *head);
 void		ft_deallocate_lst(t_list *stack);
 int			ft_array_size(char **array);
+t_list		*init_stack_a(char **str_arr);
+void		ft_index_stack(t_list **stack, char **str_array);
+void		get_min_pb(t_list **stack_a, t_list **stack_b);
 
 /* ft_printf */
 int			ft_putchar(char c);
@@ -101,5 +100,37 @@ char		*ft_strjoin(char *s1, char *s2);
 char		*ret_line(char *s);
 char		*update_stash(char *s);
 char		*get_next_line(int fd);
+
+/* Additional functions */
+char		*ft_substr(char *s, unsigned int start, size_t len);
+char		*ft_strtrim(char *s1, char *set);
+char		**ft_split(char *s, char c);
+char		*ft_itoa(int n);
+char		*ft_strmapi(char *s, char (*f)(unsigned int, char));
+void		ft_striteri(char *s, void (*f)(unsigned int, char*));
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putendl_fd(char *s, int fd);
+void		ft_putnbr_fd(int n, int fd);
+void		ft_free_array(char **array);
+int			ft_isspace_str(char *s);
+int			ft_space_arg(char **s);
+int			ft_array_size(char **array);
+void	push(t_list **stack_1, t_list **stack_2);
+void	pa(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b);
+void	swap(t_list **stack);
+void	sa(t_list **stack_a);
+void	sb(t_list **stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
+void	rotate(t_list **stack);
+void	ra(t_list **stack_a);
+void	rb(t_list **stack_b);
+void	rr(t_list **stack_a, t_list **stack_b);
+t_list	*ft_lst_prelast(t_list *stack);
+void	reverse_rotate(t_list **stack);
+void	rra(t_list **stack_a);
+void	rrb(t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:40:08 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/06 19:48:10 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/09 18:57:15 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,29 @@ int		parse_nonnum_arg(char **av);
 int		parse_dup_arg(char **s);
 void 	parse_args(int ac, char **av);
 char	**get_array(int ac, char **av);
-t_list	*init_stack_a(char **str_arr);
-void	ft_index_min(t_list **stack);
+// t_list	*init_stack_a(char **str_arr);
+// void	ft_index_min(t_list **stack);
 void	get_min_pb(t_list **stack_a, t_list **stack_b);
 void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b);
-void	push(t_list **stack_1, t_list **stack_2);
-void	pa(t_list **stack_a, t_list **stack_b);
-void	pb(t_list **stack_a, t_list **stack_b);
-void	swap(t_list **stack);
-void	sa(t_list **stack_a);
-void	sb(t_list **stack_b);
-void	ss(t_list **stack_a, t_list **stack_b);
-void	rotate(t_list **stack);
-void	ra(t_list **stack_a);
-void	rb(t_list **stack_b);
-void	rr(t_list **stack_a, t_list **stack_b);
-t_list	*ft_lst_prelast(t_list *stack);
-void	reverse_rotate(t_list **stack);
-void	rra(t_list **stack_a);
-void	rrb(t_list **stack_b);
-void	rrr(t_list **stack_a, t_list **stack_b);
+// void	push(t_list **stack_1, t_list **stack_2);
+// void	pa(t_list **stack_a, t_list **stack_b);
+// void	pb(t_list **stack_a, t_list **stack_b);
+// void	swap(t_list **stack);
+// void	sa(t_list **stack_a);
+// void	sb(t_list **stack_b);
+// void	ss(t_list **stack_a, t_list **stack_b);
+// void	rotate(t_list **stack);
+// void	ra(t_list **stack_a);
+// void	rb(t_list **stack_b);
+// void	rr(t_list **stack_a, t_list **stack_b);
+// t_list	*ft_lst_prelast(t_list *stack);
+// void	reverse_rotate(t_list **stack);
+// void	rra(t_list **stack_a);
+// void	rrb(t_list **stack_b);
+// void	rrr(t_list **stack_a, t_list **stack_b);
 void	continue_three_sort(int fir_node, int sec_node, int thi_node, \
 		t_list **stack);
 void	three_nodes_sort(t_list	**stack);
-void	five_nodes_sort(t_list **stack_a, t_list **stack_b);
+void	five_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array);
 
 #endif

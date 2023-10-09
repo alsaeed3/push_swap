@@ -1,15 +1,69 @@
 #include "inc/push_swap.h"
 
-int	main(void)
-{
-	char *str = "1 2 3 4 5 6";
-	char **strr = ft_split(str, ' ');
-	t_list	*stack_a;
+// void	ft_index_min(t_list **stack)
+// {
+// 	t_list		*tmp;
+// 	int			distance;
+// 	int			min;
+	
+// 	min = 2147483647;
+// 	distance = 0;
+// 	tmp = *stack;
+// 	while (*stack)
+// 	{
+// 		if ((*stack)->data <= min)
+// 			min = (*stack)->data;
+// 		*stack = (*stack)->next;
+// 	}
+// 	*stack = tmp;
+// 	while (*stack)
+// 	{
+// 		distance++;
+// 		if ((*stack)->data == min)
+// 		{
+// 			(*stack)->index = 0;
+// 			(*stack)->distance = distance;
+// 			printf("(*stack_a)->distance = %d\n", (*stack)->distance);
+// 		}
+// 		*stack = (*stack)->next;
+// 	}
+// 	*stack = tmp;
+// }
 
-	t_list *curr = make_stack_b(stack_a, strr);;
+int	main(void)
+{	
+	char *str = "5 2 4 1 3";
+	char **strr = ft_split(str, ' ');
+	t_list	*stack_b = NULL;
+	t_list	*stack_a = init_stack_a(strr);
+	ft_index_stack(&stack_a, strr);
+	printf("stack_a:\n");
+	t_list *curr = stack_a;
 	while (curr != NULL)
 	{
-		printf("%d\n", curr->content);
+		printf("%d\n", curr->index);
 		curr = curr->next;
 	}
+	// printf("stack_b:\n");
+	// curr = stack_b;
+	// while (curr != NULL)
+	// {
+	// 	printf("%d\n", curr->index);
+	// 	curr = curr->next;
+	// }
+	// get_min_pb(&stack_a, &stack_b);
+	// printf("stack_a:\n");
+	// curr = stack_a;
+	// while (curr != NULL)
+	// {
+	// 	printf("%d\n", curr->index);
+	// 	curr = curr->next;
+	// }
+	// printf("stack_b:\n");
+	// curr = stack_b;
+	// while (curr != NULL)
+	// {
+	// 	printf("%d\n", curr->index);
+	// 	curr = curr->next;
+	// }
 }

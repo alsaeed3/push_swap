@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/08 15:44:45 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/09 18:58:01 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,48 +29,50 @@ char	**get_array(int ac, char **av)
 	return (array);
 }
 
-t_list	*init_stack_a(char **str_arr)
-{
-	t_list	*head;
-	int		i;
+// t_list	*init_stack_a(char **str_arr)
+// {
+// 	t_list	*head;
+// 	int		i;
 
-	head = NULL;
-	head = malloc(sizeof(t_list));
-	if (!head)
-		exit (1);
-	head->data = ft_atoi(str_arr[0]);
-	head->index = -1;
-	head->next = NULL;
-	i = 1;
-	while(str_arr[i])
-	{
-		head = ft_lstadd_back(head, ft_atoi(str_arr[i]));
-		//printf("lstadd_back\n");
-		i++;
-	}
-	return (head);
-}
+// 	head = NULL;
+// 	head = malloc(sizeof(t_list));
+// 	if (!head)
+// 		exit (1);
+// 	head->data = ft_atoi(str_arr[0]);
+// 	head->distance = 0;
+// 	head->index = -1;
+// 	head->next = NULL;
+// 	i = 1;
+// 	while(str_arr[i])
+// 	{
+// 		head = ft_lstadd_back(head, ft_atoi(str_arr[i]));
+// 		//printf("lstadd_back\n");
+// 		i++;
+// 	}
+// 	return (head);
+// }
 
 void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b)
 {
 	char	**array_str;
-	//t_list	*curr;
+	t_list	*curr;
 
 	array_str = get_array(ac, av);
 	stack_a = init_stack_a(array_str);
-	//printf("ft_lstsize(stack_a) == %d\n", ft_lstsize(stack_a));
-	ft_free_array(array_str);
+	// printf("ft_lstsize(stack_a) == %d\n", ft_lstsize(stack_a));
+	// printf("lstsize: %d\n", ft_lstsize(stack_a));
 	if (ft_lstsize(stack_a) == 3)
 		three_nodes_sort(&stack_a);
 	else if (ft_lstsize(stack_a) == 5)
-		five_nodes_sort(&stack_a, &stack_b);
-	//curr = stack_a;
-	//printf("stack_a:\n");
-	//while (curr != NULL)
-	//{
-	//	printf("%d\n", curr->data);
-	//	curr = curr->next;
-	//}
+		five_nodes_sort(&stack_a, &stack_b, array_str);
+	printf("stack_a:\n");
+	curr = stack_a;
+	while (curr != NULL)
+	{
+		printf("%d\n", curr->data);
+		curr = curr->next;
+	}
+	ft_free_array(array_str);
 }
 
 int main (int ac, char **av)
