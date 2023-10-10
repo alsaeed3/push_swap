@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:05:56 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/09 19:44:58 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/10 21:31:48 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,8 @@ t_list	*init_stack_a(char **str_arr)
 	t_list	*head;
 	int		i;
 
-	head = NULL;
-	head = malloc(sizeof(t_list));
-	if (!head)
-		exit (1);
+	head = (t_list *)malloc(sizeof(t_list) * 1);
 	head->data = ft_atoi(str_arr[0]);
-	head->distance = 0;
 	head->index = -1;
 	head->next = NULL;
 	i = 1;
@@ -41,7 +37,14 @@ t_list	*init_stack_a(char **str_arr)
 		head = ft_lstadd_back(head, ft_atoi(str_arr[i]));
 		i++;
 	}
-	return (head);
+	printf ("head\n");
+	t_list *curr = head;
+	while (curr)
+	{
+		printf ("%d\n", curr->data);
+		curr = curr->next;
+	}
+	return(head);
 }
 
 int		*ft_init_index(t_list *stack, int *index, int size)
@@ -58,90 +61,91 @@ int		*ft_init_index(t_list *stack, int *index, int size)
 	return (index);
 }
 
-void	ft_index_stack_cont(t_index *index, t_list **stack)
+void	ft_index_stack_cont(t_list **stack, t_index *index)
 {
+	int	size;
+	
 	index->tmp = *stack;
 	index->i = 0;
-	while (index->i < 5 && *stack)
+	size = ft_lstsize(*stack);
+	while (index->i < size && *stack)
 	{
-		(*stack)->index = index->index[index->i];
-		*stack = (*stack)->next;
+		(*stack)->index = index->indeces[index->i];
 		index->i++;
+		*stack = (*stack)->next;
 	}
 	*stack = index->tmp;
 }
 
+int		ft_is_sorted(t_list *stack)
+{
+	while (stack->next)
+	{
+		if (stack->data > stack->next->data)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
 void	ft_index_stack(t_list **stack, char **str_array)
 {
-	t_index	*index; 
-	
-	index->index = ft_init_index(*stack, index->index, ft_lstsize(stack));
-	index->i = 0;
-	while (index->i < ft_lstsize(stack))
+	t_index	index;
+
+	index.indeces = ft_init_index(*stack, index.indeces, ft_lstsize(*stack));
+	index.i = 0;
+	while (index.i < ft_lstsize(*stack))
 	{
-		index->j = 0;
-		index->min = 2147483647;
-		while (index->j < ft_lstsize(stack))
+		index.j = 0;
+		index.min = 2147483647;
+		while (index.j < ft_lstsize(*stack))
 		{
-			if (index->index[index->j] == -1 && ft_atoi(str_array[index->j]) <= index->min)
+			if (index.indeces[index.j] == -1 && ft_atoi(str_array[index.j]) <= index.min)
 			{
-				index->k = index->j;
-				index->min = ft_atoi(str_array[index->j]);
+				index.k = index.j;
+				index.min = ft_atoi(str_array[index.j]);
 			}
-			index->j++;
+			index.j++;
 		}
-		index->index[index->k] = index->i;
-		index->i++;
+		index.indeces[index.k] = index.i;
+		index.i++;
 	}
-	ft_index_stack_cont(index, stack);
+	ft_index_stack_cont(stack, &index);
 }
 
 void	get_min_pb(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
-	int		distance;
+	t_index	index;
 
-	tmp = *stack_a;
-	while (*stack_a)
+	// if (ft_lstsize(*stack_a) == 4)
+	// 	index.median = 0;
+	// else 
+		index.median = (ft_lstsize(*stack_a) / 2) - 1;
+	index.i = 0;
+	index.lstsize = ft_lstsize(*stack_a);
+	while (index.lstsize > 3)
 	{
-		// printf(">\n");
-		if ((*stack_a)->index == 0)
+		printf ("data: %d, index: %d, median: %d\n", (*stack_a)->data, (*stack_a)->index, index.median);
+		if ((*stack_a)->index >= index.median)
+			ra(stack_a);
+		else
 		{
-			// printf("(*stack_a)->distance = %d\n", (*stack_a)->distance);
-			distance = (*stack_a)->distance - 1;
-			// printf("*****>\n");
-			while (distance > 0)
-			{
-				rra(stack_a);
-				distance--;
-				// printf ("distance = %d\n", distance);
-			}
 			pb(stack_a, stack_b);
+			index.lstsize--;
 		}
-		
-		*stack_a = (*stack_a)->next;
 	}
-	// printf("---->\n");
-	*stack_a = tmp;
 }
 
 void	push(t_list **stack_1, t_list **stack_2)
 {
-	t_list *push_node;
-	
-	if (*stack_2 == NULL)
-		return ;
-	push_node = *stack_2;
-	*stack_2 = (*stack_2)->next;
-	if (*stack_1 == NULL)
+	t_list *top;
+
+	if (*stack_2)
 	{
-		*stack_1 = push_node;
-		push_node->next = NULL;	
-	}
-	else
-	{
-		push_node->next = *stack_1;
-		*stack_1 = push_node;
+		top = *stack_2;
+		*stack_2 = top->next;
+		top->next = *stack_1;
+		*stack_1 = top;		
 	}
 }
 
@@ -225,7 +229,24 @@ void	rotate(t_list **stack)
 
 void	ra(t_list **stack_a)
 {
+	// t_list	*curr;
+	
+	// curr = NULL;
+	// printf("before ra --> stack_a:\n");
+	// curr = *stack_a;
+	// while (curr != NULL)
+	// {
+	// 	printf("%d, index: %d\n", curr->data, curr->index);
+	// 	curr = curr->next;
+	// }
 	rotate(stack_a);
+	// printf("after ra --> stack_a:\n");
+	// curr = *stack_a;
+	// while (curr != NULL)
+	// {
+	// 	printf("%d, index: %d\n", curr->data, curr->index);
+	// 	curr = curr->next;
+	// }
 	write(1, "ra\n", 3);
 }
 

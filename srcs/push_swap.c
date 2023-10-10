@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/09 18:58:01 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/10 20:40:57 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,19 @@ void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b)
 
 	array_str = get_array(ac, av);
 	stack_a = init_stack_a(array_str);
+	if (ft_is_sorted(stack_a) == 0)
+	{
+		ft_free_array(array_str);
+		exit (0);
+	}
 	// printf("ft_lstsize(stack_a) == %d\n", ft_lstsize(stack_a));
 	// printf("lstsize: %d\n", ft_lstsize(stack_a));
-	if (ft_lstsize(stack_a) == 3)
+	else if (ft_lstsize(stack_a) == 2)
+		sa(&stack_a);
+	else if (ft_lstsize(stack_a) == 3)
 		three_nodes_sort(&stack_a);
-	else if (ft_lstsize(stack_a) == 5)
-		five_nodes_sort(&stack_a, &stack_b, array_str);
+	else if (ft_lstsize(stack_a) == 4 || ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 6)
+		fvs_nodes_sort(&stack_a, &stack_b, array_str);
 	printf("stack_a:\n");
 	curr = stack_a;
 	while (curr != NULL)

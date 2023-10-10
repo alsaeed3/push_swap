@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:20:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/09 19:30:31 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/10 20:18:05 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,20 @@ typedef struct 		s_list
 {
 	int				data;
 	int				index;
-	int				distance;
 	struct s_list	*next;
 }					t_list;
 
 typedef struct		s_index
 {
-	t_list			*tmp;
+	int				*indeces;
 	int				min;
+	int				median;
 	int				i;
 	int				j;
 	int				k;
-	int				*index;
+	int				lstsize;
+	t_list			*tmp;
 }					t_index;
-
 
 int			ft_lstsize(t_list *lst);
 t_list		*ft_lstadd_back(t_list *head, int integer);
@@ -81,8 +81,10 @@ t_list		*ft_lst_last(t_list *head);
 void		ft_deallocate_lst(t_list *stack);
 int			ft_array_size(char **array);
 t_list		*init_stack_a(char **str_arr);
+void		ft_index_stack_cont(t_list **stack, t_index *index);
 void		ft_index_stack(t_list **stack, char **str_array);
 void		get_min_pb(t_list **stack_a, t_list **stack_b);
+int			ft_is_sorted(t_list *stack);
 
 /* ft_printf */
 int			ft_putchar(char c);

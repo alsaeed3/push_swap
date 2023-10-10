@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:04:26 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/09 19:48:07 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/10 20:32:23 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,29 +115,31 @@ void	three_nodes_sort(t_list	**stack)
 	}
 }
 
-void	five_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array)
+void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array)
 {
-	//t_list	*curr;
-	printf("five_nodes_sort\n");
-	//curr = NULL;
 	if (*stack_a)
 	{
-		// curr = *stack_a;
-		// while (curr != NULL)
-		// {
-		// 	printf("%d\n", curr->index);
-		// 	curr = curr->next;
-		// }
-		// printf("ft_index_min\n");
 		ft_index_stack(stack_a, str_array);
-		// printf("get_min_pb\n");
 		get_min_pb(stack_a, stack_b);
-		// printf("ft_index_min\n");
 		if (ft_lstsize(*stack_a) == 3)
 			three_nodes_sort(stack_a);
-		if ((*stack_b)->data < (*stack_b)->next->data)
+		if (ft_lstsize(*stack_b) == 1)
+			pa(stack_a, stack_b);
+		else if (ft_lstsize(*stack_b) == 2)
+		{
+			if ((*stack_b)->data < (*stack_b)->next->data)
+				sb(stack_b);
+			pa(stack_a, stack_b);
+			pa(stack_a, stack_b);
+		}
+		else if (ft_lstsize(*stack_b) == 3)
+		{
+			three_nodes_sort(stack_b);
 			sb(stack_b);
-		pa(stack_a, stack_b);
-		pa(stack_a, stack_b);
+			rrb(stack_b);
+			pa(stack_a, stack_b);
+			pa(stack_a, stack_b);
+			pa(stack_a, stack_b);
+		}
 	}
 }
