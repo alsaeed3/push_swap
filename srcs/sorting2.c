@@ -6,30 +6,52 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:04:26 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 09:20:54 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 14:14:55 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 void	continue_three_sort(int fir_node, int sec_node, int thi_node, \
-		t_list **stack)
+		t_list **stack, char flag)
 {
 	if ((fir_node > sec_node) && (fir_node > thi_node) \
 		&& (sec_node > thi_node))
 	{
-		ra(stack);
-		sa(stack);
+		if (flag == 'a')
+		{
+			ra(stack);
+			sa(stack);
+		}
 	}
 	else if ((fir_node < sec_node) && (fir_node < thi_node) \
 		&& (sec_node > thi_node))
 	{
-		rra(stack);
-		sa(stack);
+		if (flag == 'a')
+		{
+			rra(stack);
+			sa(stack);
+		}
+		else if (flag == 'b')
+			rb(stack);
 	}
 	else if ((fir_node < sec_node) && (fir_node > thi_node) \
 		&& (sec_node > thi_node))
-		rra(stack);
+	{
+		if (flag == 'a')
+			rra(stack);
+		else if (flag == 'b')
+			sb(stack);		
+	}
+	else if ((fir_node < sec_node) && (fir_node < thi_node) \
+		&& (sec_node < thi_node))
+	{
+		if (flag == 'b')
+		{
+			rb(stack);
+			sb(stack);
+		}
+	}
 }
 
 // void	ft_index_min(t_list **stack)
@@ -91,9 +113,9 @@ void	continue_three_sort(int fir_node, int sec_node, int thi_node, \
 // 	*stack_a = tmp;
 // }
 
-void	three_nodes_sort(t_list	**stack)
+void	three_nodes_sort(t_list	**stack, char flag)
 {
-	t_list *curr;
+	t_list	*curr;
 	int		first_node;
 	int		second_node;
 	int		third_node;
@@ -106,12 +128,25 @@ void	three_nodes_sort(t_list	**stack)
 		third_node = curr->next->next->data;
 		if ((first_node > second_node) && (first_node < third_node) \
 			&& (second_node < third_node))
-			sa(stack);
+		{
+			if (flag == 'a')
+				sa(stack);
+			else if (flag == 'b')
+			 	rrb(stack);
+		}
 		else if ((first_node > second_node) && (first_node > third_node) \
 			&& (second_node < third_node))
-			ra(stack);
+		{
+			if (flag == 'a')
+				ra(stack);
+			else if (flag == 'b')
+			{
+				rrb(stack);
+				sb(stack);
+			}
+		}
 		else
-			continue_three_sort(first_node, second_node, third_node, stack);
+			continue_three_sort(first_node, second_node, third_node, stack, flag);
 	}
 }
 
@@ -128,7 +163,7 @@ void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array)
 		//}
 		get_min_pb(stack_a, stack_b);
 		if (ft_lstsize(*stack_a) == 3)
-			three_nodes_sort(stack_a);
+			three_nodes_sort(stack_a, 'a');
 		if (ft_lstsize(*stack_b) == 1)
 		{
 			//printf("sort four\n");
@@ -144,10 +179,8 @@ void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array)
 		}
 		else if (ft_lstsize(*stack_b) == 3)
 		{
-			//printf("sort six\n");
-			three_nodes_sort(stack_b);
-			sb(stack_b);
-			rrb(stack_b);
+			// printf("sort six\n");
+			three_nodes_sort(stack_b, 'b');
 			pa(stack_a, stack_b);
 			pa(stack_a, stack_b);
 			pa(stack_a, stack_b);

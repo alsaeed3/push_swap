@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:05:56 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 09:17:36 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 14:14:08 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,7 @@ void	rra(t_list **stack_a)
 void	rrb(t_list **stack_b)
 {
 	reverse_rotate(stack_b);
-	write(1, "rra\n", 4);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_list **stack_a, t_list **stack_b)
@@ -274,7 +274,7 @@ void	sa(t_list **stack_a)
 void	sb(t_list **stack_b)
 {
 	swap(stack_b);
-	write(1, "sa\n", 3);
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_list **stack_a, t_list **stack_b)

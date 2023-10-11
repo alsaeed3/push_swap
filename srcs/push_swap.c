@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 10:55:42 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 14:22:43 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,23 +63,29 @@ void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b)
 		ft_free_array(array_str);
 		exit (0);
 	}
-	// printf("ft_lstsize(stack_a) == %d\n", ft_lstsize(stack_a));
-	// printf("lstsize: %d\n", ft_lstsize(stack_a));
 	else if (ft_lstsize(stack_a) == 2)
 		sa(&stack_a);
 	else if (ft_lstsize(stack_a) == 3)
-		three_nodes_sort(&stack_a);
-	else if (ft_lstsize(stack_a) == 4 || ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 6)
+		three_nodes_sort(&stack_a, 'a');
+	else if (ft_lstsize(stack_a) > 3 && ft_lstsize(stack_a) < 7)
 		fvs_nodes_sort(&stack_a, &stack_b, array_str);
+	else if (ft_lstsize(stack_a) >= 7)
+		multi_nodes_sort(&stack_a, &stack_b, array_str);
 
-	//printf("stack_a:\n");
-	//t_list	*curr = stack_a;
-	//while (curr != NULL)
-	//{
-	//	printf("%d\n", curr->data);
-	//	curr = curr->next;
-	//}
-
+	// printf("stack_a:\n");
+	// t_list	*curr = stack_a;
+	// while (curr != NULL)
+	// {
+	// 	printf("%d\n", curr->data);
+	// 	curr = curr->next;
+	// }
+	// printf("stack_b:\n");
+	// curr = stack_b;
+	// while (curr != NULL)
+	// {
+	// 	printf("%d\n", curr->data);
+	// 	curr = curr->next;
+	// }
 	ft_free_array(array_str);
 }
 

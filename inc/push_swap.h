@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:40:08 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/10 19:21:23 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 13:05:57 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b);
 // void	rra(t_list **stack_a);
 // void	rrb(t_list **stack_b);
 // void	rrr(t_list **stack_a, t_list **stack_b);
+void	three_nodes_sort(t_list	**stack, char flag);
 void	continue_three_sort(int fir_node, int sec_node, int thi_node, \
-		t_list **stack);
-void	three_nodes_sort(t_list	**stack);
+		t_list **stack, char flag);
 void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array);
 
 #endif
