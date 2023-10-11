@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:40:08 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 13:05:57 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 21:09:11 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ char	**get_array(int ac, char **av);
 // void	ft_index_min(t_list **stack);
 void	get_min_pb(t_list **stack_a, t_list **stack_b);
 void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b);
+int		find_highest_index(t_list *stack_a);
+int		find_max_bits(t_list *stack_a);
+void	multi_nodes_sort(t_list **stack_a, t_list **stack_b);
 // void	push(t_list **stack_1, t_list **stack_2);
 // void	pa(t_list **stack_a, t_list **stack_b);
 // void	pb(t_list **stack_a, t_list **stack_b);
@@ -47,6 +50,6 @@ void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b);
 void	three_nodes_sort(t_list	**stack, char flag);
 void	continue_three_sort(int fir_node, int sec_node, int thi_node, \
 		t_list **stack, char flag);
-void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array);
+void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b);
 
 #endif

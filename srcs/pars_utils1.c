@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:03:05 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/08 15:30:32 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 20:54:30 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ int		parse_nonnum_arg(char **s)
         i = 0;
         while (s[j][i])
         {
-            if (s[j][i] != ' ' && !(s[j][i] >= '\t' && s[j][i] <= '\r') \
-                && !(s[j][i] == '-' || s[j][i] == '+') \
+            if (s[j][i] != ' ' && !(s[j][i] == '-' || s[j][i] == '+') \
                 && !(s[j][i] >= '0' && s[j][i] <= '9'))
                 return (1);
-			else if ((s[j][i] == '+' || s[j][i] == '-') \
-				&& (s[j][i + 1] == '\0' || s[j][i + 1] == ' '))
+			if ((s[j][i] == '+' || s[j][i] == '-' \
+			|| (s[j][i] >= '0' && s[j][i] <= '9')) \
+			&& (s[j][i + 1] == '+' || s[j][i + 1] == '-'))
 				return (1);
             i++;
         }
@@ -117,6 +117,7 @@ void	parse_args(int ac, char **av)
 	}
 	str = ft_strjoin_sp(ac, av);
 	str_arr = ft_split(str, ' ');
+	//check if arguments is digit...if not exit 
 	free (str);
 	if (parse_nonnum_arg(str_arr) == 1 || parse_dup_arg(str_arr) == 1)
 	{

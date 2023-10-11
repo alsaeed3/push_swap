@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:04:26 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 14:14:55 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 21:08:57 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,11 +150,10 @@ void	three_nodes_sort(t_list	**stack, char flag)
 	}
 }
 
-void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array)
+void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b)
 {
 	if (*stack_a)
 	{
-		ft_index_stack(stack_a, str_array);
 		//t_list *curr = *stack_a;
 		//while(curr)
 		//{

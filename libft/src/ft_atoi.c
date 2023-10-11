@@ -6,11 +6,17 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:34:50 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/03 20:31:03 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 20:21:31 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
+
+static void	ft_error_exit(void)
+{
+	write(2, "Error\n", 6);
+	exit (1);
+}
 
 int ft_atoi(char *s)
 {
@@ -29,13 +35,11 @@ int ft_atoi(char *s)
 		i++;
 	while ((s[i] >= '0' && s[i] <= '9') || s[i] == '+' || s[i] == '-' )
 	{
+		if (s[i] == '-' || s[i] == '+')
+			ft_error_exit();
 		integer = integer * 10 + s[i] - 48;
-		if (((integer * sign) > 2147483647) || ((integer * sign) < -2147483648) \
-			|| s[i] == '-' || s[i] == '+')
-		{
-			write(2, "Error\n", 6);
-			exit (1);
-		}
+		if (((integer * sign) > 2147483647) || ((integer * sign) < -2147483648))
+			ft_error_exit();
 		i++;
 	}
 	return (integer * sign);
