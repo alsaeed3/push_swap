@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/10 20:40:57 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 10:55:42 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ char	**get_array(int ac, char **av)
 void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b)
 {
 	char	**array_str;
-	t_list	*curr;
 
 	array_str = get_array(ac, av);
 	stack_a = init_stack_a(array_str);
@@ -72,13 +71,15 @@ void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b)
 		three_nodes_sort(&stack_a);
 	else if (ft_lstsize(stack_a) == 4 || ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 6)
 		fvs_nodes_sort(&stack_a, &stack_b, array_str);
-	printf("stack_a:\n");
-	curr = stack_a;
-	while (curr != NULL)
-	{
-		printf("%d\n", curr->data);
-		curr = curr->next;
-	}
+
+	//printf("stack_a:\n");
+	//t_list	*curr = stack_a;
+	//while (curr != NULL)
+	//{
+	//	printf("%d\n", curr->data);
+	//	curr = curr->next;
+	//}
+
 	ft_free_array(array_str);
 }
 

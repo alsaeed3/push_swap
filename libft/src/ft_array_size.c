@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:05:56 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/10 21:31:48 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 09:17:36 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ t_list	*init_stack_a(char **str_arr)
 	{
 		head = ft_lstadd_back(head, ft_atoi(str_arr[i]));
 		i++;
-	}
-	printf ("head\n");
-	t_list *curr = head;
-	while (curr)
-	{
-		printf ("%d\n", curr->data);
-		curr = curr->next;
 	}
 	return(head);
 }
@@ -117,16 +110,12 @@ void	get_min_pb(t_list **stack_a, t_list **stack_b)
 {
 	t_index	index;
 
-	// if (ft_lstsize(*stack_a) == 4)
-	// 	index.median = 0;
-	// else 
-		index.median = (ft_lstsize(*stack_a) / 2) - 1;
+	index.median = ft_lstsize(*stack_a) - 4;
 	index.i = 0;
 	index.lstsize = ft_lstsize(*stack_a);
 	while (index.lstsize > 3)
 	{
-		printf ("data: %d, index: %d, median: %d\n", (*stack_a)->data, (*stack_a)->index, index.median);
-		if ((*stack_a)->index >= index.median)
+		if ((*stack_a)->index > index.median)
 			ra(stack_a);
 		else
 		{

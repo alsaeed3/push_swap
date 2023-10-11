@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:04:26 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/10 20:32:23 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 09:20:54 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,13 +120,23 @@ void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array)
 	if (*stack_a)
 	{
 		ft_index_stack(stack_a, str_array);
+		//t_list *curr = *stack_a;
+		//while(curr)
+		//{
+		//	printf("node[%d]: %d\n", curr->index, curr->data);
+		//	curr = curr->next;
+		//}
 		get_min_pb(stack_a, stack_b);
 		if (ft_lstsize(*stack_a) == 3)
 			three_nodes_sort(stack_a);
 		if (ft_lstsize(*stack_b) == 1)
+		{
+			//printf("sort four\n");
 			pa(stack_a, stack_b);
+		}
 		else if (ft_lstsize(*stack_b) == 2)
 		{
+			//printf("sort five\n");
 			if ((*stack_b)->data < (*stack_b)->next->data)
 				sb(stack_b);
 			pa(stack_a, stack_b);
@@ -134,6 +144,7 @@ void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b, char **str_array)
 		}
 		else if (ft_lstsize(*stack_b) == 3)
 		{
+			//printf("sort six\n");
 			three_nodes_sort(stack_b);
 			sb(stack_b);
 			rrb(stack_b);
