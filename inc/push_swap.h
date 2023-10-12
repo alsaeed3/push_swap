@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:40:08 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 21:09:11 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 11:46:55 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**get_array(int ac, char **av);
 // t_list	*init_stack_a(char **str_arr);
 // void	ft_index_min(t_list **stack);
 void	get_min_pb(t_list **stack_a, t_list **stack_b);
-void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b);
+void	init_stacks(int ac, char **av, t_list **stack_a, t_list **stack_b);
 int		find_highest_index(t_list *stack_a);
 int		find_max_bits(t_list *stack_a);
 void	multi_nodes_sort(t_list **stack_a, t_list **stack_b);

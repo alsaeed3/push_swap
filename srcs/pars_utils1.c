@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:03:05 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 20:54:30 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 11:03:28 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ void	parse_args(int ac, char **av)
 	}
 	str = ft_strjoin_sp(ac, av);
 	str_arr = ft_split(str, ' ');
-	//check if arguments is digit...if not exit 
 	free (str);
 	if (parse_nonnum_arg(str_arr) == 1 || parse_dup_arg(str_arr) == 1)
 	{

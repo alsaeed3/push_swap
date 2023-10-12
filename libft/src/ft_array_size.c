@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:05:56 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/12 08:45:26 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 11:37:33 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ t_list	*init_stack_a(char **str_arr)
 	t_list	*head;
 	int		i;
 
-	head = (t_list *)malloc(sizeof(t_list) * 1);
-	head->data = ft_atoi(str_arr[0]);
-	head->index = -1;
-	head->next = NULL;
-	i = 1;
+	head = NULL;
+	// head->data = ft_atoi(str_arr[0]);
+	// head->index = -1;
+	// head->next = NULL;
+	i = 0;
 	while(str_arr[i])
 	{
 		head = ft_lstadd_back(head, ft_atoi(str_arr[i]));

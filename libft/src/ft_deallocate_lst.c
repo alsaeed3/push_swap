@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:05:38 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 23:03:02 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 12:37:12 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_deallocate_lst(t_list **stack)
 	t_list	*next;
 
 	curr = *stack;
-	if (stack != NULL)
+	if (*stack != NULL)
 	{
 		while (curr->next != NULL)
 		{
