@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:05:25 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 23:10:26 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 14:00:46 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	push(t_list **stack_1, t_list **stack_2)
 {
-	t_list *top;
+	t_list	*top;
 
 	if (*stack_2)
 	{
 		top = *stack_2;
 		*stack_2 = top->next;
 		top->next = *stack_1;
-		*stack_1 = top;		
+		*stack_1 = top;
 	}
 }
 

@@ -6,117 +6,33 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/12 12:36:41 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 20:08:49 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stdio.h>
 
-char	**get_array(int ac, char **av)
+int	ft_is_sorted(t_list *stack)
 {
-	char	*str;
-	char	**array;
-
-	str = NULL;
-	array = NULL;
-	str = ft_strjoin_sp(ac, av);
-	array = ft_split(str, ' ');
-	free (str);
-	str = NULL;
-	if (ft_array_size(array) <= 1)
-		exit (0);
-	return (array);
-}
-
-int		find_highest_index(t_list *stack_a)
-{
-	t_list	*curr;
-	int		max;
-
-	curr = stack_a;
-	max = -2147483648;
-	while (curr)
+	while (stack->next)
 	{
-		if (curr->index >= max)
-			max = curr->index;
-		curr = curr->next;
+		if (stack->data > stack->next->data)
+			return (1);
+		stack = stack->next;
 	}
-	printf("%d\n", max);
-	return (max);
-}
-
-int		find_max_bits(t_list *stack_a)
-{
-	int	max_bits;
-	int temp;
-	int	bits;
-	t_list	*curr;
-
-	max_bits = 0;
-	curr = stack_a;
-	while (curr->next)
-	{
-		temp = curr->data;
-		bits = 0;
-		while (temp > 0)
-		{
-			bits++;
-			temp >>= 1;
-		}
-		if (bits > max_bits)
-			max_bits = bits;
-		curr = curr->next;
-	}
-	return (max_bits);
-}
-
-void	multi_nodes_sort(t_list **stack_a, t_list **stack_b)
-{
-	int bit_pos;
-	int max_bits;
-	int	bit;
-	int lst_size;
-	int b_size;
-	int	i;
-
-	lst_size = ft_lstsize(*stack_a);
-	max_bits = find_max_bits(*stack_a);
-	bit_pos = 0;
-	b_size = 0;
-	while (bit_pos < max_bits)
-	{
-		i = 0;
-		while (i < lst_size)
-		{
-			bit = ((*stack_a)->index >> bit_pos) & 1;
-			if (bit == 0)
-				pb(stack_a, stack_b);
-			else
-				ra(stack_a);
-			i++;
-		}
-		b_size = ft_lstsize(*stack_b);
-		i = 0;
-		while (i < b_size)
-		{
-			pa(stack_a, stack_b);
-			i++;
-		}
-		bit_pos++;
-	}		
-	i++;
+	return (0);
 }
 
 void	init_stacks(int ac, char **av, t_list **stack_a, t_list **stack_b)
 {
 	char	**array_str;
 
-	array_str = get_array(ac, av);
+	array_str = ft_get_array(ac, av);
 	*stack_a = init_stack_a(array_str);
 	if (ft_is_sorted(*stack_a) == 0)
 	{
 		ft_free_array(array_str);
+		ft_deallocate_lst(stack_a);
 		exit (0);
 	}
 	ft_index_stack(stack_a, array_str);
@@ -131,7 +47,7 @@ void	init_stacks(int ac, char **av, t_list **stack_a, t_list **stack_b)
 		multi_nodes_sort(stack_a, stack_b);
 }
 
-int main (int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;

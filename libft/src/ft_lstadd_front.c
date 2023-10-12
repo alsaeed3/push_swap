@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:45:20 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/06 12:04:10 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 13:54:39 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list *head, int integer)
 {
-	t_list *new_node;
+	t_list	*new_node;
 
 	if (head != NULL)
 	{

@@ -6,21 +6,21 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:06:30 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/04 16:08:57 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 16:37:45 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-int		ft_space_arg(char **s)
+int	ft_space_arg(char **s)
 {
-	int i;
+	int	i;
 
-	i = 1;
+	i = 0;
 	while (s[i])
 	{
 		if (ft_isspace_str(s[i]) == 1)
-			return (1);
+			return (-1);
 		i++;
 	}
 	return (0);

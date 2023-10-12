@@ -6,18 +6,18 @@
 #    By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 16:40:12 by alsaeed           #+#    #+#              #
-#    Updated: 2023/10/06 19:02:11 by alsaeed          ###   ########.fr        #
+#    Updated: 2023/10/12 15:59:22 by alsaeed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	../push_swap
 
-SRCS =	pars_utils1.c push_swap.c push.c reverse_rotate.c rotate.c sorting2.c \
-		swap.c
+SRCS =	pars_utils.c push_swap.c push.c reverse_rotate.c rotate.c sorting2.c \
+		swap.c three_sort.c multi_sort.c
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -ggdb3
 
 LIBFT_DIR = ../libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
