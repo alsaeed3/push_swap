@@ -6,18 +6,18 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:05:38 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/06 11:45:08 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 23:03:02 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_deallocate_lst(t_list *stack)
+void	ft_deallocate_lst(t_list **stack)
 {
 	t_list	*curr;
 	t_list	*next;
 
-	curr = stack;
+	curr = *stack;
 	if (stack != NULL)
 	{
 		while (curr->next != NULL)

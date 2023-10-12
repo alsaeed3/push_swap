@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 21:21:34 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 23:02:36 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,49 +76,33 @@ void	multi_nodes_sort(t_list **stack_a, t_list **stack_b)
 	int bit_pos;
 	int max_bits;
 	int	bit;
-	int b_size;
 	int lst_size;
+	int b_size;
 	int	i;
 
 	lst_size = ft_lstsize(*stack_a);
 	max_bits = find_max_bits(*stack_a);
 	bit_pos = 0;
 	b_size = 0;
-	printf("1----->\n");
 	while (bit_pos < max_bits)
 	{
-		printf("2----->\n");
 		i = 0;
-		printf("3----->\n");
-		while (i < 7)
+		while (i < lst_size)
 		{
-			printf("%d@----->\n", i);
 			bit = ((*stack_a)->index >> bit_pos) & 1;
-			printf("$----->\n");
 			if (bit == 0)
-			{
-				printf("&----->\n");
 				pb(stack_a, stack_b);
-			}
 			else
-			{
-				printf("#----->\n");
 				ra(stack_a);
-			}
-			printf("!----->\n");
 			i++;
-			printf("*----->\n");
 		}
-		printf("4----->\n");
 		b_size = ft_lstsize(*stack_b);
 		i = 0;
-		printf("5----->\n");
 		while (i < b_size)
 		{
 			pa(stack_a, stack_b);
 			i++;
 		}
-		printf("6----->\n");
 		bit_pos++;
 	}		
 	i++;
@@ -144,20 +128,6 @@ void	init_stacks(int ac, char **av, t_list *stack_a, t_list *stack_b)
 		fvs_nodes_sort(&stack_a, &stack_b);
 	else if (ft_lstsize(stack_a) >= 7)
 		multi_nodes_sort(&stack_a, &stack_b);
-	printf("stack_a:\n");
-	t_list	*curr = stack_a;
-	while (curr != NULL)
-	{
-		printf("%d\n", curr->data);
-		curr = curr->next;
-	}
-	printf("stack_b:\n");
-	curr = stack_b;
-	while (curr != NULL)
-	{
-		printf("%d\n", curr->data);
-		curr = curr->next;
-	}
 	ft_free_array(array_str);
 }
 
@@ -172,8 +142,8 @@ int main (int ac, char **av)
 	{
 		parse_args(ac, av);
 		init_stacks(ac, av, stack_a, stack_b);
-		ft_deallocate_lst(stack_a);
-		ft_deallocate_lst(stack_b);
+		ft_deallocate_lst(&stack_a);
+		ft_deallocate_lst(&stack_b);
 	}
 	return (0);
 }

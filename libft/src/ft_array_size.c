@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:05:56 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 14:14:08 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 08:45:26 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_index_stack_cont(t_list **stack, t_index *index)
 		*stack = (*stack)->next;
 	}
 	*stack = index->tmp;
+	free(index->indeces);
 }
 
 int		ft_is_sorted(t_list *stack)
@@ -125,132 +126,132 @@ void	get_min_pb(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	push(t_list **stack_1, t_list **stack_2)
-{
-	t_list *top;
+//void	push(t_list **stack_1, t_list **stack_2)
+//{
+//	t_list *top;
 
-	if (*stack_2)
-	{
-		top = *stack_2;
-		*stack_2 = top->next;
-		top->next = *stack_1;
-		*stack_1 = top;		
-	}
-}
+//	if (*stack_2)
+//	{
+//		top = *stack_2;
+//		*stack_2 = top->next;
+//		top->next = *stack_1;
+//		*stack_1 = top;		
+//	}
+//}
 
-void	pa(t_list **stack_a, t_list **stack_b)
-{
-	push(stack_a, stack_b);
-	write(1, "pa\n", 3);
-}
+//void	pa(t_list **stack_a, t_list **stack_b)
+//{
+//	push(stack_a, stack_b);
+//	write(1, "pa\n", 3);
+//}
 
-void	pb(t_list **stack_a, t_list **stack_b)
-{
-	push(stack_b, stack_a);
-	write(1, "pb\n", 3);
-}
+//void	pb(t_list **stack_a, t_list **stack_b)
+//{
+//	push(stack_b, stack_a);
+//	write(1, "pb\n", 3);
+//}
 
-t_list	*ft_lst_prelast(t_list *stack)
-{
-	if (!stack || !stack->next)
-		return (NULL);
-	while (stack->next->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
+//t_list	*ft_lst_prelast(t_list *stack)
+//{
+//	if (!stack || !stack->next)
+//		return (NULL);
+//	while (stack->next->next != NULL)
+//		stack = stack->next;
+//	return (stack);
+//}
 
-void	reverse_rotate(t_list **stack)
-{
-	t_list	*last;
-	t_list	*prelast;
-	int		len;
+//void	reverse_rotate(t_list **stack)
+//{
+//	t_list	*last;
+//	t_list	*prelast;
+//	int		len;
 
-	len = ft_lstsize(*stack);
-	if (*stack && stack && len != 1)
-	{
-		last = ft_lst_last(*stack);
-		if (last)
-		{
-			prelast = ft_lst_prelast(*stack);
-			last->next = *stack;
-			if (prelast)
-				prelast->next = NULL;
-			*stack = last;
-		}
-	}
-}
+//	len = ft_lstsize(*stack);
+//	if (*stack && stack && len != 1)
+//	{
+//		last = ft_lst_last(*stack);
+//		if (last)
+//		{
+//			prelast = ft_lst_prelast(*stack);
+//			last->next = *stack;
+//			if (prelast)
+//				prelast->next = NULL;
+//			*stack = last;
+//		}
+//	}
+//}
 
-void	rra(t_list **stack_a)
-{
-	reverse_rotate(stack_a);
-	write(1, "rra\n", 4);
-}
+//void	rra(t_list **stack_a)
+//{
+//	reverse_rotate(stack_a);
+//	write(1, "rra\n", 4);
+//}
 
-void	rrb(t_list **stack_b)
-{
-	reverse_rotate(stack_b);
-	write(1, "rrb\n", 4);
-}
+//void	rrb(t_list **stack_b)
+//{
+//	reverse_rotate(stack_b);
+//	write(1, "rrb\n", 4);
+//}
 
-void	rrr(t_list **stack_a, t_list **stack_b)
-{
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
-	write(1, "rrr\n", 4);
-}
+//void	rrr(t_list **stack_a, t_list **stack_b)
+//{
+//	reverse_rotate(stack_a);
+//	reverse_rotate(stack_b);
+//	write(1, "rrr\n", 4);
+//}
 
-void	rotate(t_list **stack)
-{
-	t_list	*tmp;
-	t_list	*last;
-	int		len;
+//void	rotate(t_list **stack)
+//{
+//	t_list	*tmp;
+//	t_list	*last;
+//	int		len;
 
-	len = ft_lstsize(*stack);
-	if (*stack && len != 1)
-	{
-		tmp = *stack;
-		last = ft_lst_last(*stack);
-		*stack = (*stack)->next;
-		last->next = tmp;
-		last->next->next = NULL;
-	}
-}
+//	len = ft_lstsize(*stack);
+//	if (*stack && len != 1)
+//	{
+//		tmp = *stack;
+//		last = ft_lst_last(*stack);
+//		*stack = (*stack)->next;
+//		last->next = tmp;
+//		last->next->next = NULL;
+//	}
+//}
 
-void	ra(t_list **stack_a)
-{
-	// t_list	*curr;
+//void	ra(t_list **stack_a)
+//{
+//	// t_list	*curr;
 	
-	// curr = NULL;
-	// printf("before ra --> stack_a:\n");
-	// curr = *stack_a;
-	// while (curr != NULL)
-	// {
-	// 	printf("%d, index: %d\n", curr->data, curr->index);
-	// 	curr = curr->next;
-	// }
-	rotate(stack_a);
-	// printf("after ra --> stack_a:\n");
-	// curr = *stack_a;
-	// while (curr != NULL)
-	// {
-	// 	printf("%d, index: %d\n", curr->data, curr->index);
-	// 	curr = curr->next;
-	// }
-	write(1, "ra\n", 3);
-}
+//	// curr = NULL;
+//	// printf("before ra --> stack_a:\n");
+//	// curr = *stack_a;
+//	// while (curr != NULL)
+//	// {
+//	// 	printf("%d, index: %d\n", curr->data, curr->index);
+//	// 	curr = curr->next;
+//	// }
+//	rotate(stack_a);
+//	// printf("after ra --> stack_a:\n");
+//	// curr = *stack_a;
+//	// while (curr != NULL)
+//	// {
+//	// 	printf("%d, index: %d\n", curr->data, curr->index);
+//	// 	curr = curr->next;
+//	// }
+//	write(1, "ra\n", 3);
+//}
 
-void	rb(t_list **stack_b)
-{
-	rotate(stack_b);
-	write(1, "rb\n", 3);
-}
+//void	rb(t_list **stack_b)
+//{
+//	rotate(stack_b);
+//	write(1, "rb\n", 3);
+//}
 
-void	rr(t_list **stack_a, t_list **stack_b)
-{
-	rotate(stack_a);
-	rotate(stack_b);
-	write(1, "rr\n", 3);
-}
+//void	rr(t_list **stack_a, t_list **stack_b)
+//{
+//	rotate(stack_a);
+//	rotate(stack_b);
+//	write(1, "rr\n", 3);
+//}
 
 void	swap(t_list **stack)
 {

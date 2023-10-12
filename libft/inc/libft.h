@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:20:59 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/10 20:18:05 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 23:03:56 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int			ft_lstsize(t_list *lst);
 t_list		*ft_lstadd_back(t_list *head, int integer);
 void		ft_lstadd_front(t_list *head, int integer);
 t_list		*ft_lst_last(t_list *head);
-void		ft_deallocate_lst(t_list *stack);
+void		ft_deallocate_lst(t_list **stack);
 int			ft_array_size(char **array);
 t_list		*init_stack_a(char **str_arr);
 void		ft_index_stack_cont(t_list **stack, t_index *index);

@@ -6,53 +6,12 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:04:26 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/11 21:08:57 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/11 23:18:01 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	continue_three_sort(int fir_node, int sec_node, int thi_node, \
-		t_list **stack, char flag)
-{
-	if ((fir_node > sec_node) && (fir_node > thi_node) \
-		&& (sec_node > thi_node))
-	{
-		if (flag == 'a')
-		{
-			ra(stack);
-			sa(stack);
-		}
-	}
-	else if ((fir_node < sec_node) && (fir_node < thi_node) \
-		&& (sec_node > thi_node))
-	{
-		if (flag == 'a')
-		{
-			rra(stack);
-			sa(stack);
-		}
-		else if (flag == 'b')
-			rb(stack);
-	}
-	else if ((fir_node < sec_node) && (fir_node > thi_node) \
-		&& (sec_node > thi_node))
-	{
-		if (flag == 'a')
-			rra(stack);
-		else if (flag == 'b')
-			sb(stack);		
-	}
-	else if ((fir_node < sec_node) && (fir_node < thi_node) \
-		&& (sec_node < thi_node))
-	{
-		if (flag == 'b')
-		{
-			rb(stack);
-			sb(stack);
-		}
-	}
-}
 
 // void	ft_index_min(t_list **stack)
 // {
@@ -147,6 +106,48 @@ void	three_nodes_sort(t_list	**stack, char flag)
 		}
 		else
 			continue_three_sort(first_node, second_node, third_node, stack, flag);
+	}
+}
+
+void	continue_three_sort(int fir_node, int sec_node, int thi_node, \
+		t_list **stack, char flag)
+{
+	if ((fir_node > sec_node) && (fir_node > thi_node) \
+		&& (sec_node > thi_node))
+	{
+		if (flag == 'a')
+		{
+			ra(stack);
+			sa(stack);
+		}
+	}
+	else if ((fir_node < sec_node) && (fir_node < thi_node) \
+		&& (sec_node > thi_node))
+	{
+		if (flag == 'a')
+		{
+			rra(stack);
+			sa(stack);
+		}
+		else if (flag == 'b')
+			rb(stack);
+	}
+	else if ((fir_node < sec_node) && (fir_node > thi_node) \
+		&& (sec_node > thi_node))
+	{
+		if (flag == 'a')
+			rra(stack);
+		else if (flag == 'b')
+			sb(stack);		
+	}
+	else if ((fir_node < sec_node) && (fir_node < thi_node) \
+		&& (sec_node < thi_node))
+	{
+		if (flag == 'b')
+		{
+			rb(stack);
+			sb(stack);
+		}
 	}
 }
 
