@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:04:26 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/12 20:30:15 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:12:47 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	find_max_bits(t_list *stack_a)
 	curr = stack_a;
 	while (curr->next)
 	{
-		temp = curr->data;
+		temp = curr->index;
 		bits = 0;
 		while (temp > 0)
 		{
