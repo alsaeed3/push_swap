@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:02:47 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/12 20:08:49 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/13 16:06:34 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_is_sorted(t_list *stack)
 {
 	while (stack->next)
 	{
-		if (stack->data > stack->next->data)
+		if (stack->index > stack->next->index)
 			return (1);
 		stack = stack->next;
 	}
@@ -29,13 +29,13 @@ void	init_stacks(int ac, char **av, t_list **stack_a, t_list **stack_b)
 
 	array_str = ft_get_array(ac, av);
 	*stack_a = init_stack_a(array_str);
+	ft_index_stack(stack_a, array_str);
 	if (ft_is_sorted(*stack_a) == 0)
 	{
 		ft_free_array(array_str);
 		ft_deallocate_lst(stack_a);
 		exit (0);
 	}
-	ft_index_stack(stack_a, array_str);
 	ft_free_array(array_str);
 	if (ft_lstsize(*stack_a) == 2)
 		sa(stack_a);

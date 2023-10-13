@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:40:08 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/12 18:44:25 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/13 16:13:40 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_multi_sort
 	int				i;	
 }	t_multi_sort;
 
-/* USED FUNCTIONS */
 int				parse_nonnum_arg(char **av);
 int				parse_dup_arg(char **s);
 void			parse_args(int ac, char **av);

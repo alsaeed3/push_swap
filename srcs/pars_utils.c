@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:03:05 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/12 20:13:14 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:34:24 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	parse_dup_arg(char **s)
 {
 	int	i;
 	int	j;
-	int error;
+	int	error;
 
 	error = 0;
 	i = ft_atoi(s[0], &error);

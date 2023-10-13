@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:04:26 by alsaeed           #+#    #+#             */
-/*   Updated: 2023/10/12 21:12:47 by alsaeed          ###   ########.fr       */
+/*   Updated: 2023/10/13 16:07:06 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	fvs_nodes_sort(t_list **stack_a, t_list **stack_b)
 			pa(stack_a, stack_b);
 		else if (ft_lstsize(*stack_b) == 2)
 		{
-			if ((*stack_b)->data < (*stack_b)->next->data)
+			if ((*stack_b)->index < (*stack_b)->next->index)
 				sb(stack_b);
 			pa(stack_a, stack_b);
 			pa(stack_a, stack_b);
